@@ -26,6 +26,7 @@
         .card-block {
             color: #212121;
             font-size: 16px;
+
         }
 
         h1.logo {
@@ -36,7 +37,8 @@
         .card {
             margin-bottom: 10px;
             margin-top: 10px;
-            border: 1px solid rgba(115, 115, 115, 0.125)
+            border: 1px solid rgba(115, 115, 115, 0.125);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
         }
 
         .card-header {
@@ -68,12 +70,12 @@
             color: #428BCB;
         }
         .last-update {
-            color: #848484;
+            color: #9E9E9E;
             font-size: 16px;
         }
 
         .time {
-            color: #8a8a8a;
+            color: #BDBDBD;
             font-size: 15px;
         }
     </style>
