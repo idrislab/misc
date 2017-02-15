@@ -93,7 +93,7 @@
                 <div class="card-header" role="tab" id="headingOne">
                     <h5 class="mb-3">
                         <a href="http://forum.bodybuilding.com/showthread.php?t={{$thread->url}}" target="_blank">
-                            {{ $thread->title }} {!! str_repeat('<img src="img/star.png">', $thread->rating ) !!}
+                            {{ $thread->title }} {!! str_repeat('<img width="16px" height="16px" src="img/star.png">', $thread->rating ) !!}
                         </a>
                     </h5>
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$thread->url}}"
