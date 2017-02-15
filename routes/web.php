@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', 'ThreadController@index');
-Route::get('/best', 'ThreadController@best');
+Route::get('/', 'ThreadController@index')->name('hot');
+Route::get('/best', 'ThreadController@best')->name('best');
 
 Auth::routes();
 

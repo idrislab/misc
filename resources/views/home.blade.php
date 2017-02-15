@@ -84,6 +84,15 @@
         .navbar {
             background-color: #fff;
         }
+
+        li.active {
+            background-color: #12466D;
+            color: #fff;
+        }
+
+        li.active  a {
+            color: #fff !important;
+        }
     </style>
 </head>
 <body>
@@ -95,12 +104,13 @@
         <a class="navbar-brand" href="#">
             misQ.me
         </a>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
+                <li class="nav-item {{ \Route::currentRouteName() == 'hot' ? 'active' : '' }}"  >
                     <a class="nav-link" href="/">Hot</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ \Route::currentRouteName() == 'best' ? 'active' : '' }}">
                     <a class="nav-link" href="/best">Best</a>
                 </li>
             </ul>
