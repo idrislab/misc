@@ -50,7 +50,7 @@
         }
 
         .label {
-            color: #9E9E9E;
+            color: #607D8B;
             font-size: 13px;
         }
 
