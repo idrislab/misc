@@ -63,6 +63,8 @@ class ThreadCrawler
                     $postDate = $node->filter('.date')->text();
                     $postDate = trim(preg_filter(['/[\s,]+/', '/-/'], [' ', '/'], $postDate));
 
+                    $post = $node->filter('.postcontent')->html();
+
                     $joinDate = $node->filterXpath('//div[@class="userinfo"]//dl/dt[contains(text(),\'Join Date:\')]')->text();
                     $joinDate = trim(str_replace('Join Date:', '', $joinDate));
 
@@ -71,8 +73,6 @@ class ThreadCrawler
 
                     $repPower = $node->filterXpath('//div[@class="userinfo"]//dl/dt[contains(text(),\'Rep Power:\')]')->text();
                     $repPower = trim(str_replace('Rep Power:', '', $repPower));
-
-                    $post = $node->filter('.postcontent')->html();
 
                     $avatar = $node->filter('.postuseravatar img')->attr('src');
 
@@ -86,8 +86,16 @@ class ThreadCrawler
                     ];
 
                 } catch (\Exception $e) {
-                    Log::warning($e->getMessage());
-                    return;
+                    Log::warning($e->getMessage() . PHP_EOL . ' Thread: '. $thread . ' Page: '. $page );
+
+                    return [
+                        'postDate' => (new Carbon())->now(),
+                        'joinDate' => (new Carbon())->now(),
+                        'posts' => 1,
+                        'repPower' => 1,
+                        'avatar' => 'anonymous.png',
+                        'post' => '',
+                    ];
                 }
             });
 
