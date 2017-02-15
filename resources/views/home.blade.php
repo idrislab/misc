@@ -31,7 +31,7 @@
 
         h1.logo {
             font-family: 'Pacifico', cursive;
-            font-size: 50px;
+            font-size: 30px;
             color: #12466D;
         }
         .card {
@@ -78,14 +78,34 @@
             color: #BDBDBD;
             font-size: 15px;
         }
+
+        .navbar {
+            background-color: #fff;
+        }
     </style>
 </head>
 <body>
 <div class="container-fluid">
-    <div class="mb-3 mt-3 text-center">
-        <h1 class="logo">misQ.me</h1>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+            <h1 class="logo">misQ.me</h1>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Hot</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/best">Best</a>
+                </li>
+            </ul>
+        </div>
         <span class="last-update">Updated <span class="time">{{ \Carbon\Carbon::parse($status->updated_at)->diffForHumans() }}</span></span>
-    </div>
+
+    </nav>
 
     <div id="accordion" role="tablist" aria-multiselectable="true">
         @foreach ($threads as $thread)

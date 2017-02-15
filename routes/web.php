@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'ThreadController@index');
+Route::get('/best', 'ThreadController@best');
 
 Auth::routes();
 

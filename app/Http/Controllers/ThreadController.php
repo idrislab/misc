@@ -20,8 +20,26 @@ class ThreadController extends Controller
 
         $threads = Thread::where('startDate', '>', $dayAgo)
             ->where('sticky', false)
-            ->orderBy('confidence', 'desc')
             ->orderBy('hotness', 'desc')
+            ->paginate(60);
+
+        $status = Status::find(1);
+
+        return view('home', compact('threads', 'status'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function best()
+    {
+        $dayAgo = Carbon::now()->subDay();
+
+        $threads = Thread::where('startDate', '>', $dayAgo)
+            ->where('sticky', false)
+            ->orderBy('confidence', 'desc')
             ->paginate(60);
 
         $status = Status::find(1);
