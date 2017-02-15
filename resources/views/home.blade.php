@@ -29,10 +29,10 @@
 
         }
 
-        h1.logo {
+        .navbar-brand {
             font-family: 'Pacifico', cursive;
             font-size: 30px;
-            color: #12466D;
+            color: #12466D !important;
         }
         .card {
             margin-bottom: 10px;
@@ -77,6 +77,8 @@
         .time {
             color: #BDBDBD;
             font-size: 15px;
+            white-space: nowrap;
+
         }
 
         .navbar {
@@ -91,11 +93,11 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="#">
-            <h1 class="logo">misQ.me</h1>
+            misQ.me
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="/">Hot</a>
                 </li>
                 <li class="nav-item">
@@ -103,7 +105,9 @@
                 </li>
             </ul>
         </div>
-        <span class="last-update">Updated <span class="time">{{ \Carbon\Carbon::parse($status->updated_at)->diffForHumans() }}</span></span>
+        <div class="col-md-2">
+            <span class="last-update">Updated </span> <span class="time">{{ \Carbon\Carbon::parse($status->updated_at)->diffForHumans() }}</span>
+        </div>
 
     </nav>
 
