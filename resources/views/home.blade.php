@@ -136,7 +136,7 @@
                             <div class="col-md-1">
                                 <img src="{{ $thread->avatar }}" class="rounded-circle">
                             </div>
-                            <div class="col-md-2 align-middle">
+                            <div class="col-md-2">
                                 <div class="col-md-12 label">
                                     {{ $thread->author }}
                                 </div>
@@ -144,7 +144,7 @@
                                     <span class="align-middle">{{ \Carbon\Carbon::parse($thread->startDate)->diffForHumans() }}</span>
                                 </div>
                             </div>
-                            <div class="col-md-2 text-center">
+                            <div class="col-md-2">
                                 <div class="col-md-12 label">
                                     Last Post
                                 </div>
