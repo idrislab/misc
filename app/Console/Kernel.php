@@ -13,7 +13,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\CrawlPages::class,
+        Commands\indexThreads::class,
+        //Commands\Containers::class,
     ];
 
     /**
