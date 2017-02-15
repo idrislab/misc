@@ -7,15 +7,15 @@
 
     <title>Misq.me - Bodybuilding Misc</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Pacifico" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
           integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
     <!-- Styles -->
     <style>
         body {
-            font-family: 'Open Sans', sans-serif;
-            font-size: 14px;
+            font-family: 'Lato', sans-serif;
+            font-size: 15px;
         }
 
         .rounded-circle {
@@ -23,18 +23,24 @@
             height: 40px;
         }
 
+        .card-block {
+            color: #212121;
+            font-size: 16px;
+        }
+
         h1.logo {
             font-family: 'Pacifico', cursive;
             font-size: 50px;
-            color: #2b65c1;
+            color: #12466D;
         }
         .card {
             margin-bottom: 10px;
             margin-top: 10px;
+            border: 1px solid rgba(115, 115, 115, 0.125)
         }
 
         .card-header {
-            background-color: #fefefe;
+            background-color: #FAFAFA;
             border-bottom: 0px;
         }
 
@@ -44,17 +50,22 @@
         }
 
         .label {
-            color: #677e9c;
+            color: #9E9E9E;
             font-size: 13px;
         }
 
         .label-text {
-            color: #2e3945;
+            color: #616161;
             font-size: 14px;
         }
-
-        a.label-link:hover{
+        a {
+            color: #283593;
+        }
+        a.label-link:hover, a.label-link:active, a.label-link:focus {
             text-decoration: none;
+        }
+        a:visited {
+            color: #428BCB;
         }
         .last-update {
             color: #848484;
@@ -90,7 +101,10 @@
                                 <img src="{{ $thread->avatar }}" class="rounded-circle">
                             </div>
                             <div class="col-md-2 align-middle">
-                                <div class="col-md-12">
+                                <div class="col-md-12 label">
+                                    {{ $thread->author }}
+                                </div>
+                                <div class="col-md-12 label-text">
                                     <span class="align-middle">{{ \Carbon\Carbon::parse($thread->startDate)->diffForHumans() }}</span>
                                 </div>
                             </div>
@@ -102,20 +116,21 @@
                                     {{ \Carbon\Carbon::parse($thread->lastPostDate)->diffForHumans() }}
                                 </div>
                             </div>
-                            <div class="col-md-2 text-center">
-                                <div class="col-md-12 label">
-                                    Views
-                                </div>
-                                <div class="col-md-12 label-text">
-                                    {{ $thread->views }}
-                                </div>
-                            </div>
+
                             <div class="col-md-2 text-center">
                                 <div class="col-md-12 label">
                                     Replies
                                 </div>
                                 <div class="col-md-12 label-text">
                                     {{ $thread->replies }}
+                                </div>
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <div class="col-md-12 label">
+                                    Views
+                                </div>
+                                <div class="col-md-12 label-text">
+                                    {{ $thread->views }}
                                 </div>
                             </div>
                         </div>
