@@ -16,10 +16,11 @@ class ThreadController extends Controller
      */
     public function index()
     {
-        $dayAgo = Carbon::now()->subDay()->timestamp;
+        $dayAgo = Carbon::now()->subDay();
 
         $threads = Thread::where('startDate', '>', $dayAgo)
             ->where('sticky', false)
+            ->orderBy('confidence', 'desc')
             ->orderBy('hotness', 'desc')
             ->paginate(60);
 
