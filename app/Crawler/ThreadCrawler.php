@@ -58,46 +58,51 @@ class ThreadCrawler
                 continue;
             }
 
-            $data = $crawler->filterXpath('//li[contains(@id,\'post_\')]')->each(function (DomCrawler $node) {
-                try {
-                    $postDate = $node->filter('.date')->text();
-                    $postDate = trim(preg_filter(['/[\s,]+/', '/-/'], [' ', '/'], $postDate));
+            $data = $crawler
+                ->filterXpath('//li[contains(@id,\'post_\')]')
+                ->each(function (DomCrawler $node) use (
+                    $thread,
+                    $page
+                ) {
+                    try {
+                        $postDate = $node->filter('.date')->text();
+                        $postDate = trim(preg_filter(['/[\s,]+/', '/-/'], [' ', '/'], $postDate));
 
-                    $post = $node->filter('.postcontent')->html();
+                        $post = $node->filter('.postcontent')->html();
 
-                    $joinDate = $node->filterXpath('//div[@class="userinfo"]//dl/dt[contains(text(),\'Join Date:\')]')->text();
-                    $joinDate = trim(str_replace('Join Date:', '', $joinDate));
+                        $joinDate = $node->filterXpath('//div[@class="userinfo"]//dl/dt[contains(text(),\'Join Date:\')]')->text();
+                        $joinDate = trim(str_replace('Join Date:', '', $joinDate));
 
-                    $posts = $node->filterXpath('//div[@class="userinfo"]//dl/dt[contains(text(),\'Posts:\')]')->text();
-                    $posts = trim(preg_replace(['/,/', '/Posts\:/'], ['', ''], $posts));
+                        $posts = $node->filterXpath('//div[@class="userinfo"]//dl/dt[contains(text(),\'Posts:\')]')->text();
+                        $posts = trim(preg_replace(['/,/', '/Posts\:/'], ['', ''], $posts));
 
-                    $repPower = $node->filterXpath('//div[@class="userinfo"]//dl/dt[contains(text(),\'Rep Power:\')]')->text();
-                    $repPower = trim(str_replace('Rep Power:', '', $repPower));
+                        $repPower = $node->filterXpath('//div[@class="userinfo"]//dl/dt[contains(text(),\'Rep Power:\')]')->text();
+                        $repPower = trim(str_replace('Rep Power:', '', $repPower));
 
-                    $avatar = $node->filter('.postuseravatar img')->attr('src');
+                        $avatar = $node->filter('.postuseravatar img')->attr('src');
 
-                    return [
-                        'postDate' => new Carbon($postDate),
-                        'joinDate' => new Carbon($joinDate),
-                        'posts' => $posts,
-                        'repPower' => $repPower,
-                        'avatar' => $avatar,
-                        'post' => $post,
-                    ];
+                        return [
+                            'postDate' => new Carbon($postDate),
+                            'joinDate' => new Carbon($joinDate),
+                            'posts' => $posts,
+                            'repPower' => $repPower,
+                            'avatar' => $avatar,
+                            'post' => $post,
+                        ];
 
-                } catch (\Exception $e) {
-                    Log::warning($e->getMessage() . PHP_EOL . ' Thread: '. $thread . ' Page: '. $page );
+                    } catch (\Exception $e) {
+                        Log::warning($e->getMessage() . PHP_EOL . ' Thread: ' . $thread . ' Page: ' . $page);
 
-                    return [
-                        'postDate' => (new Carbon())->now(),
-                        'joinDate' => (new Carbon())->now(),
-                        'posts' => 1,
-                        'repPower' => 1,
-                        'avatar' => 'anonymous.png',
-                        'post' => '',
-                    ];
-                }
-            });
+                        return [
+                            'postDate' => (new Carbon())->now(),
+                            'joinDate' => (new Carbon())->now(),
+                            'posts' => 1,
+                            'repPower' => 1,
+                            'avatar' => 'anonymous.png',
+                            'post' => '',
+                        ];
+                    }
+                });
 
             $posts = array_merge($posts, $data);
         }
