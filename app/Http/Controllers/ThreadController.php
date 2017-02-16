@@ -21,7 +21,7 @@ class ThreadController extends Controller
         $threads = Thread::where('startDate', '>', $dayAgo)
             ->where('sticky', false)
             ->orderBy('hotness', 'desc')
-            ->paginate(60);
+            ->simplePaginate(15);
 
         $status = Status::find(1);
 
@@ -40,7 +40,7 @@ class ThreadController extends Controller
         $threads = Thread::where('startDate', '>', $dayAgo)
             ->where('sticky', false)
             ->orderBy('confidence', 'desc')
-            ->paginate(60);
+            ->simplePaginate(15);
 
         $status = Status::find(1);
 
