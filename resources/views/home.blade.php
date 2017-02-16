@@ -100,7 +100,7 @@
         }
 
         .pagination {
-            font-size:40px;
+            font-size: 65px;
         }
     </style>
 </head>
