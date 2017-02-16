@@ -78,9 +78,9 @@ class indexThreads extends Command
             $hotness += $this->hot($ups, $downs, (new Carbon($thread->lastPostDate))->timestamp);
             $hotness += $this->hot($ups, $downs, (new Carbon($thread->startDate))->timestamp);
 
-            $rating = $thread->rating;
-            $replies = $thread->replies;
-            $views = $thread->views;
+            $rating = (int) $thread->rating;
+            $replies = (int) $thread->replies;
+            $views = (int) $thread->views;
 
             $ups = ($rating * ($replies + 1) / ($views + 1)) + $replies + $views;
 
