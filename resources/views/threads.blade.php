@@ -54,4 +54,6 @@
         </div>
     @endforeach
 </div>
-{{ $threads->links() }}
+<div class="col-md-12">
+    {{ $threads->links() }}
+</div>
