@@ -147,6 +147,7 @@
 <script>
     $(function () {
         $('img').attr('class', 'img-fluid');
+        $('iframe').wrap("<div class='embed-responsive embed-responsive-16by9'></div>");
     });
 </script>
 </body>
