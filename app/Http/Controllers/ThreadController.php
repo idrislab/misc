@@ -35,7 +35,7 @@ class ThreadController extends Controller
      */
     public function best()
     {
-        $dayAgo = Carbon::now()->subDay();
+        $dayAgo = Carbon::now()->subDays(2);
 
         $threads = Thread::where('startDate', '>', $dayAgo)
             ->where('sticky', false)
