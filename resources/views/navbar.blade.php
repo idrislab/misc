@@ -10,14 +10,19 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item {{ \Route::currentRouteName() == 'hot' ? 'active' : '' }}">
+            <li class="nav-item mr-md-2 mb-2 mt-2 {{ \Route::currentRouteName() == 'hot' ? 'active' : '' }}">
                 <a class="nav-link pl-3 pr-3" href="/">Trending</a>
             </li>
-            <li class="nav-item {{ \Route::currentRouteName() == 'best' ? 'active' : '' }}">
+            <li class="nav-item mb-2 mt-2 {{ \Route::currentRouteName() == 'best' ? 'active' : '' }}">
                 <a class="nav-link pl-3 pr-3" href="/best">Best</a>
             </li>
         </ul>
+        <form class="form-inline my-2 my-lg-0" action="search"aa>
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
     </div>
+
     <div class="col-md-3  text-right">
         <span class="last-update">Updated </span> <span
                 class="time">{{ \Carbon\Carbon::parse($status->updated_at)->diffForHumans() }}</span>

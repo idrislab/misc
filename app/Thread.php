@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Scout\Searchable;
 use Yadakhov\InsertOnDuplicateKey;
 
 /**
@@ -14,7 +15,7 @@ use Yadakhov\InsertOnDuplicateKey;
  */
 class Thread extends Model
 {
-    use Notifiable, SoftDeletes, InsertOnDuplicateKey;
+    use Notifiable, SoftDeletes, InsertOnDuplicateKey, Searchable;
 
     protected $fillable = [
         'url',

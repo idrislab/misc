@@ -10,8 +10,10 @@
         "guzzlehttp/guzzle": "^6.2",
         "kevinrob/guzzle-cache-middleware": "^2.0",
         "laravel/framework": "5.4.*",
+        "laravel/scout": "^3.0",
         "laravel/tinker": "~1.0",
         "predictionio/predictionio": "^0.9.0",
+        "tamayo/laravel-scout-elastic": "^3.0",
         "yadakhov/insert-on-duplicate-key": "^1.1"
     },
     "require-dev": {

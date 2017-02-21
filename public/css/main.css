@@ -76,23 +76,27 @@ a:visited {
 }
 
 .navbar li.active {
-    background-color: #12466D;
+    border: 2px solid #12466D;
+    border-radius: 4px;
 }
-
+.navbar li:not(.active) {
+    border: 2px solid transparent;
+}
 .navbar li:hover:not(.active) {
-    background-color: #12466D;
+    border: 2px solid #12466D;
+    border-radius: 4px;
 }
 
 .navbar li:not(.active):hover a {
-    color: #fff !important;
+    color: #12466D !important;
 }
 
 .navbar li.active a {
-    color: #fff !important;
+    color: #12466D !important;
 }
 
 .navbar li a {
-    color: #424242;
+    color: #12466D;
 }
 
 .pagination {
