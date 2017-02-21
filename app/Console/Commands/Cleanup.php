@@ -39,7 +39,7 @@ class Cleanup extends Command
     {
         $date = Carbon::now()->subDays(2);
         Thread::where('startDate', '<', $date)
-            ->where('posts', '<', 30)
+            ->where('posts', '<', 60)
             ->delete();
     }
 }
