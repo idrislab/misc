@@ -15,7 +15,7 @@ use Yadakhov\InsertOnDuplicateKey;
  */
 class Thread extends Model
 {
-    use Notifiable, SoftDeletes, InsertOnDuplicateKey, Searchable;
+    use Notifiable, InsertOnDuplicateKey, Searchable;
 
     protected $fillable = [
         'url',
