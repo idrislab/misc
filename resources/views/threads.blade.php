@@ -55,5 +55,7 @@
     @endforeach
 </div>
 <div class="col-md-12">
-    {{ $threads->links() }}
+    @if(method_exists( 'links', $threads ))
+        {{ $threads->links() }}
+    @endif
 </div>

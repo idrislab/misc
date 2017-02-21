@@ -21,7 +21,7 @@ class ThreadController extends Controller
         $threads = Thread::where('startDate', '>', $dayAgo)
             ->where('sticky', false)
             ->orderBy('hotness', 'desc')
-            ->simplePaginate(15);
+            ->paginate(15);
 
         $status = Status::find(1);
 
@@ -40,9 +40,21 @@ class ThreadController extends Controller
         $threads = Thread::where('startDate', '>', $dayAgo)
             ->where('sticky', false)
             ->orderBy('confidence', 'desc')
-            ->simplePaginate(15);
+            ->paginate(15);
 
         $status = Status::find(1);
+
+        return view('home', compact('threads', 'status'));
+    }
+   /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        $status = Status::find(1);
+        $threads = Thread::search($request->search)->get();
 
         return view('home', compact('threads', 'status'));
     }

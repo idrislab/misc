@@ -13,6 +13,7 @@
 
 Route::get('/', 'ThreadController@index')->name('hot');
 Route::get('/best', 'ThreadController@best')->name('best');
+Route::get('/search', 'ThreadController@search');
 
 Auth::routes();
 
