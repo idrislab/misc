@@ -15,7 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         Commands\CrawlPages::class,
         Commands\indexThreads::class,
-        //Commands\Containers::class,
+        Commands\Cleanup::class,
     ];
 
     /**
