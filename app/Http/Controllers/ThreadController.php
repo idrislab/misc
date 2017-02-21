@@ -54,7 +54,7 @@ class ThreadController extends Controller
     public function search(Request $request)
     {
         $status = Status::find(1);
-        $threads = Thread::search($request->search)->get();
+        $threads = Thread::search($request->search)->paginate(15);
 
         return view('home', compact('threads', 'status'));
     }
