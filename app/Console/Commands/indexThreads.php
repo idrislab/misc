@@ -71,7 +71,7 @@ class indexThreads extends Command
                 $repPower = $post['repPower'] * 1 + 1;
 
                 //$ups += (($posts/$joinDate) + $posts + $postDate + ($repPower/$posts));
-                $ups += ($userPosts + $repPower) / ($months / $joinDate+1) + $postDate + ($repPower / $userPosts+1);
+                $ups += ($userPosts + $repPower + 1) / ($months / $joinDate+1) + $postDate + ($repPower+1 / $userPosts+1);
             }
 
             $postsConfidence = $this->confidence($ups, $downs);
