@@ -101,8 +101,6 @@ class indexThreads extends Command
                     'indexDate' => (new Carbon())->now(),
                 ]);
 
-            Thread::where('id', $thread->id)->searchable();
-
             $bar->advance();
         }
 
