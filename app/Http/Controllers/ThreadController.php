@@ -34,8 +34,7 @@ class ThreadController extends Controller
     {
         $dayAgo = Carbon::now()->subDay();
 
-        $threads = Thread::where('startDate', '>', $dayAgo)
-            ->where('sticky', false)
+        $threads = Thread::where('sticky', false)
             ->orderBy('confidence', 'desc')
             ->paginate(15);
 
